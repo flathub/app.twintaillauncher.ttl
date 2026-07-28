@@ -95,7 +95,7 @@ modules:
   - name: pnpm
     buildsystem: simple
     cleanup:
-    - "*"
+      - '*'
     build-commands:
       - install -Dm755 pnpm /app/bin/pnpm
     sources:
@@ -137,8 +137,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/ValveSoftware/gamescope.git
-        commit: 6ea6b21e83a3077d60ee5ab044b472dfc399189d
-        tag: 3.16.24
+        commit: 17baf4abd1ab3353fb705e4d0d023f84e870f7e8
+        tag: 3.16.25
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
@@ -163,8 +163,10 @@ modules:
           url-template: https://github.com/g-truc/glm/archive/$version/glm.tar.gz
       - type: shell
         commands:
-          - echo -n 'Checking stb version ' && grep 5736b15f7ea0ffb08dd38af21067c314d6a3aae9 subprojects/stb.wrap
-          - echo -n 'Checking glm version ' && grep 0af55ccecd98d4e5a8d1fad7de25ba429d60e863 subprojects/glm.wrap
+          - echo -n 'Checking stb version ' && grep 5736b15f7ea0ffb08dd38af21067c314d6a3aae9
+            subprojects/stb.wrap
+          - echo -n 'Checking glm version ' && grep 0af55ccecd98d4e5a8d1fad7de25ba429d60e863
+            subprojects/glm.wrap
           - meson subprojects packagefiles --apply
     modules:
       - name: hwdata
@@ -172,8 +174,8 @@ modules:
           - --datarootdir=${FLATPAK_DEST}/share
         sources:
           - type: archive
-            url: https://github.com/vcrhonek/hwdata/archive/v0.408/hwdata-0.408.tar.gz
-            sha256: ac7c34efc5941d5cbf739a8f7f6c84b1c2edea493fd3fca10906ef64d7afd690
+            url: https://github.com/vcrhonek/hwdata/archive/v0.409/hwdata-0.409.tar.gz
+            sha256: 23006accc0f931dd5187d0307a57d0744e2b8feb85e73c37bc0f5229fb31eadd
             x-checker-data:
               type: anitya
               project-id: 5387
@@ -365,8 +367,8 @@ modules:
         sources:
           - type: git
             url: https://github.com/openresty/luajit2.git
-            tag: v2.1-20260227
-            commit: 928290a470d35eb01324d5275b22fb86b13602a2
+            tag: v2.1-20260724
+            commit: 982cd8323eafd8604a9e5f2a916aa50b9f67d9ed
             x-checker-data:
               type: git
               tag-pattern: ^v([\d.-]+)$
@@ -501,7 +503,7 @@ modules:
       - cargo --offline fetch --manifest-path src-tauri/Cargo.toml --verbose
       - /app/bin/pnpm --offline build:native --no-bundle # We need pnpm for building
 
-      - 'install -Dm755 src-tauri/target/release/twintaillauncher /app/bin/twintaillauncher'
+      - install -Dm755 src-tauri/target/release/twintaillauncher /app/bin/twintaillauncher
       - install -Dm644 twintaillauncher.desktop /app/share/applications/app.twintaillauncher.ttl.desktop
       - install -Dm644 src-tauri/icons/128x128.png /app/share/icons/hicolor/128x128/apps/app.twintaillauncher.ttl.png
       - install -Dm644 src-tauri/icons/32x32.png /app/share/icons/hicolor/32x32/apps/app.twintaillauncher.ttl.png
