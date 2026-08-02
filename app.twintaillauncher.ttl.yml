@@ -95,7 +95,7 @@ modules:
   - name: pnpm
     buildsystem: simple
     cleanup:
-    - "*"
+      - '*'
     build-commands:
       - install -Dm755 pnpm /app/bin/pnpm
     sources:
@@ -137,8 +137,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/ValveSoftware/gamescope.git
-        commit: 6ea6b21e83a3077d60ee5ab044b472dfc399189d
-        tag: 3.16.24
+        commit: 17baf4abd1ab3353fb705e4d0d023f84e870f7e8
+        tag: 3.16.25
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
@@ -163,8 +163,10 @@ modules:
           url-template: https://github.com/g-truc/glm/archive/$version/glm.tar.gz
       - type: shell
         commands:
-          - echo -n 'Checking stb version ' && grep 5736b15f7ea0ffb08dd38af21067c314d6a3aae9 subprojects/stb.wrap
-          - echo -n 'Checking glm version ' && grep 0af55ccecd98d4e5a8d1fad7de25ba429d60e863 subprojects/glm.wrap
+          - echo -n 'Checking stb version ' && grep 5736b15f7ea0ffb08dd38af21067c314d6a3aae9
+            subprojects/stb.wrap
+          - echo -n 'Checking glm version ' && grep 0af55ccecd98d4e5a8d1fad7de25ba429d60e863
+            subprojects/glm.wrap
           - meson subprojects packagefiles --apply
     modules:
       - name: hwdata
@@ -172,8 +174,8 @@ modules:
           - --datarootdir=${FLATPAK_DEST}/share
         sources:
           - type: archive
-            url: https://github.com/vcrhonek/hwdata/archive/v0.408/hwdata-0.408.tar.gz
-            sha256: ac7c34efc5941d5cbf739a8f7f6c84b1c2edea493fd3fca10906ef64d7afd690
+            url: https://github.com/vcrhonek/hwdata/archive/v0.410/hwdata-0.410.tar.gz
+            sha256: 2864b061b179b8ad8cb6a7339ca07678240a183d9cedce8677a4950acaf798e0
             x-checker-data:
               type: anitya
               project-id: 5387
@@ -261,8 +263,8 @@ modules:
           - -Dsecure-rpc=false
         sources:
           - type: archive
-            url: https://xorg.freedesktop.org/archive/individual/xserver/xwayland-24.1.12.tar.xz
-            sha256: 6df02c511b92c1b9848734d9d1b03a4c24f8375ba3cada44e9684a21b5f78e21
+            url: https://xorg.freedesktop.org/archive/individual/xserver/xwayland-24.1.13.tar.xz
+            sha256: 173aea3d6f79609164c04528e1c8e4c9b60fcd59391c3c9dad4667297d727fb6
             x-checker-data:
               type: anitya
               project-id: 180949
@@ -326,8 +328,8 @@ modules:
               - --disable-static
             sources:
               - type: archive
-                url: https://xorg.freedesktop.org/releases/individual/lib/libXfont2-2.0.7.tar.xz
-                sha256: 8b7b82fdeba48769b69433e8e3fbb984a5f6bf368b0d5f47abeec49de3e58efb
+                url: https://xorg.freedesktop.org/releases/individual/lib/libXfont2-2.0.8.tar.xz
+                sha256: f556c0e1093a4e6911cc90bc4b106d201902ee187fd74af206ff162f7e6a24d5
                 x-checker-data:
                   type: anitya
                   project-id: 17165
@@ -365,8 +367,8 @@ modules:
         sources:
           - type: git
             url: https://github.com/openresty/luajit2.git
-            tag: v2.1-20260227
-            commit: 928290a470d35eb01324d5275b22fb86b13602a2
+            tag: v2.1-20260724
+            commit: 982cd8323eafd8604a9e5f2a916aa50b9f67d9ed
             x-checker-data:
               type: git
               tag-pattern: ^v([\d.-]+)$
@@ -501,7 +503,7 @@ modules:
       - cargo --offline fetch --manifest-path src-tauri/Cargo.toml --verbose
       - /app/bin/pnpm --offline build:native --no-bundle # We need pnpm for building
 
-      - 'install -Dm755 src-tauri/target/release/twintaillauncher /app/bin/twintaillauncher'
+      - install -Dm755 src-tauri/target/release/twintaillauncher /app/bin/twintaillauncher
       - install -Dm644 twintaillauncher.desktop /app/share/applications/app.twintaillauncher.ttl.desktop
       - install -Dm644 src-tauri/icons/128x128.png /app/share/icons/hicolor/128x128/apps/app.twintaillauncher.ttl.png
       - install -Dm644 src-tauri/icons/32x32.png /app/share/icons/hicolor/32x32/apps/app.twintaillauncher.ttl.png
