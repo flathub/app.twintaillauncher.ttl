@@ -15,6 +15,9 @@
         </p>
     </description>
     <releases>
+        <release version="3.16.25" date="2026-08-05">
+            <description></description>
+        </release>
         <release version="2.4.0" date="2026-07-24">
             <description>
                 <p>Release 2.4.0</p>
@@ -79,7 +82,7 @@
         <category>Game</category>
         <category>Utility</category>
     </categories>
-    <content_rating type="oars-1.0" />
+    <content_rating type="oars-1.0"/>
     <branding>
         <color type="primary" scheme_preference="light">#e8d9ff</color>
         <color type="primary" scheme_preference="dark">#30203B</color>
