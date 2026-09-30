@@ -516,7 +516,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/TwintailTeam/TwintailLauncher.git
-        tag: ttl-v2.5.0
+        tag: ttl-v2.5.1
       - type: file
         path: app.twintaillauncher.ttl.metainfo.xml
       - node_sources.json
