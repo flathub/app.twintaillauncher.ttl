@@ -510,13 +510,14 @@ modules:
       - install -Dm755 src-tauri/target/release/resources/winetricks /app/lib/twintaillauncher/resources/winetricks
       - install -Dm755 src-tauri/target/release/resources/reaper /app/lib/twintaillauncher/resources/reaper
       - install -Dm644 src-tauri/target/release/resources/hkrpg_patch.dll /app/lib/twintaillauncher/resources/hkrpg_patch.dll
+      - install -Dm644 src-tauri/target/release/resources/suspend_start.exe /app/lib/twintaillauncher/resources/suspend_start.exe
       - cp -r src-tauri/target/release/resources/locales /app/lib/twintaillauncher/resources
       - install -Dm644 LICENSE /app/share/licenses/app.twintaillauncher.ttl/LICENSE
       - desktop-file-edit --set-icon=app.twintaillauncher.ttl /app/share/applications/app.twintaillauncher.ttl.desktop
     sources:
       - type: git
         url: https://github.com/TwintailTeam/TwintailLauncher.git
-        tag: ttl-v2.5.1
+        tag: ttl-v2.5.2
       - type: file
         path: app.twintaillauncher.ttl.metainfo.xml
       - node_sources.json
