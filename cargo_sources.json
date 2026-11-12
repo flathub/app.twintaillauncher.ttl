@@ -2,8 +2,8 @@
     {
         "type": "git",
         "url": "https://github.com/twintailteam/fischl-rs",
-        "commit": "b7f534d4a93310135d00db1fac7949b9d0f7a37d",
-        "dest": "flatpak-cargo/git/fischl-rs-b7f534d"
+        "commit": "51dce5a1ecd0904f97710db250907db31af919d8",
+        "dest": "flatpak-cargo/git/fischl-rs-51dce5a"
     },
     {
         "type": "git",
@@ -2171,7 +2171,7 @@
     {
         "type": "shell",
         "commands": [
-            "cp -r --reflink=auto \"flatpak-cargo/git/fischl-rs-b7f534d/.\" \"cargo/vendor/fischl\""
+            "cp -r --reflink=auto \"flatpak-cargo/git/fischl-rs-51dce5a/.\" \"cargo/vendor/fischl\""
         ]
     },
     {
